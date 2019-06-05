@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: master-service
+Implementation-Version: 1.1
+Built-By: UTL0857
+Implementation-Vendor-Id: shaalakosh-master
+Build-Jdk: 1.8.0_171
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

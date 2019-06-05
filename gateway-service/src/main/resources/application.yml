@@ -1,0 +1,58 @@
+info:
+  component: Edge Server
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+zuul:
+  prefix: /api
+  routes:
+    account:
+      path: /account/**
+      sensitiveHeaders: null
+      serviceId: account-service
+    student:
+      path: /student/**
+      sensitiveHeaders: null
+      serviceId: student-service
+    school: 
+      path: /school/**
+      sensitiveHeaders: null
+      serviceId: school-service
+    authorization: 
+      path: /auth/**
+      sensitiveHeaders: null
+      serviceId: authorization-service
+    master:
+      path: /master/**
+      sensitiveHeaders : null
+      serviceId: master-service
+ribbon:
+  eureka:
+    enabled: true
+  ConnectTimeout: 30000
+  ReadTimeout: 30000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+    registerWithEureka: true
+server:
+  port: 2222
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
+
+hystrix:
+  metrics:
+    enabled: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000    
